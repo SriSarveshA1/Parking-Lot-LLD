@@ -4,3 +4,9 @@ export enum VehicleType{
     ELECTRIC_CAR = 'ELECTRIC_CAR',
     ELECTRIC_BIKE = 'ELECTRIC_BIKE'
 }
+
+
+export enum ParkingSlotStatus {
+    EMPTY = 'EMPTY',
+    CLOSED = 'CLOSED'
+}

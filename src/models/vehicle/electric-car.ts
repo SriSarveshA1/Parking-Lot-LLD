@@ -13,7 +13,7 @@ export class ElectricCarVehicle extends Vehicle implements IElectricChargeSuppor
     }
 
     chargeVehicle(): void {
-        console.log("Chargin the vehicle")
+        console.log("Charing the vehicle")
     }
 
     getBatteryPercentage(): number {

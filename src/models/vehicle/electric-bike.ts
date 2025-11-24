@@ -12,7 +12,7 @@ export class ElectricBikeVehicle extends Vehicle implements IElectricChargeSuppo
         console.log("Parking the electric bike into the available slot")
     }
     chargeVehicle(): void {
-        console.log("Chargin the vehicle")
+        console.log("Charing the vehicle")
     }
 
     getBatteryPercentage(): number {
