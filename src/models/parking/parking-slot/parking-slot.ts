@@ -77,6 +77,8 @@ export abstract class ParkingSlot{
     public abstract parkVehicleIntoSpot(): void
 
 
+    // We will have others methods which will help us in lots of filtering options and all.
+
 
 }
 
