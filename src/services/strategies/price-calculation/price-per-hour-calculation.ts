@@ -1,5 +1,5 @@
 import { Ticket } from "../../../models/ticket/ticket";
-import { getEpochTime } from "../../../utils/time/timt-utils";
+import { convertSecondsToHours, getEpochTime } from "../../../utils/time/timt-utils";
 import { IPriceCalculationStrategy } from "./Iprice-calculation";
 
 export class PricePerHourCalculationStrategy implements IPriceCalculationStrategy{
@@ -34,6 +34,6 @@ export class PricePerHourCalculationStrategy implements IPriceCalculationStrateg
             return 0
         }
         const no_of_hours = getEpochTime(endHour)- getEpochTime(startHour);
-        return no_of_hours*this.pricePerHour
+        return convertSecondsToHours(no_of_hours*this.pricePerHour)
     }   
 }
