@@ -8,5 +8,5 @@ export enum VehicleType{
 
 export enum ParkingSlotStatus {
     EMPTY = 'EMPTY',
-    CLOSED = 'CLOSED'
+    OCCUPIED = 'OCCUPIED'
 }
