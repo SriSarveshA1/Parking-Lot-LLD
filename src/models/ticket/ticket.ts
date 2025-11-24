@@ -15,8 +15,8 @@ export class Ticket{
     private _priceCalculationStrategy: IPriceCalculationStrategy; 
     private _parkingSlot: ParkingSlot;
    
-    constructor(id:string,startTime:Date,vehicle:Vehicle,parkingSlot:ParkingSlot,priceCalculationStrategy:IPriceCalculationStrategy){
-        this._id=id;
+    constructor(startTime:Date,vehicle:Vehicle,parkingSlot:ParkingSlot,priceCalculationStrategy:IPriceCalculationStrategy){
+        this._id=crypto.randomUUID();
         this._startTime=startTime;
         this._vehicle =vehicle;
         this._endTime = null;

@@ -50,15 +50,32 @@ export abstract class ParkingSlot{
     public set vehicle(value: Vehicle | null) {
         // We are setting the vehicle ,
         // And before setting the vehicle we need to have a check if the vehicle is of the allowed vehicle types
-        const vehicleType = this.vehicle?.vehicleType
+        const vehicleType = value?.vehicleType
 
         if (vehicleType && this.allowedVehicleTypes.includes(vehicleType)){
             this._parkingSlotStatus = ParkingSlotStatus.OCCUPIED;
             this._vehicle = value;
+            console.log("Vehicle successfully set")
         }else{
             // we need to use custom error's instead of generic error
             console.log(`Vehicle type not supported , input:[${value}] , supported types:[${this._allowedVehicleTypes}]`)
         }
+    }
+
+    public isVehicleAllowed(value:Vehicle){
+        const vehicleType = value?.vehicleType
+
+        if (vehicleType && this.allowedVehicleTypes.includes(vehicleType)){
+            return true;
+        }
+        return false;
+    }
+
+    public isSlotAvailable():boolean{
+        if (this.parkingSlotStatus == ParkingSlotStatus.EMPTY){
+            return true
+        }
+        return false;
     }
 
     public get parkingFloor(): ParkingFloor {

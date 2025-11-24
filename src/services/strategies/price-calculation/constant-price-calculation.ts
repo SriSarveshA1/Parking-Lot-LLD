@@ -1,3 +1,4 @@
+import { CONSTANT_PRICE } from "../../../constants/ constants";
 import { Ticket } from "../../../models/ticket/ticket";
 import { IPriceCalculationStrategy } from "./Iprice-calculation";
 
@@ -19,6 +20,6 @@ export class ConstantPriceCalculationStrategy implements IPriceCalculationStrate
 
     calculatePrice():number{
         // we need to have constant to maintain this value
-        return 100
+        return CONSTANT_PRICE[this.ticket.vehicle.vehicleType]
     }   
 }

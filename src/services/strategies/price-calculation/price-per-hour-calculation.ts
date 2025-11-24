@@ -1,20 +1,14 @@
+import { PRICE_PER_HOUR } from "../../../constants/ constants";
 import { Ticket } from "../../../models/ticket/ticket";
 import { convertSecondsToHours, getEpochTime } from "../../../utils/time/timt-utils";
 import { IPriceCalculationStrategy } from "./Iprice-calculation";
 
 export class PricePerHourCalculationStrategy implements IPriceCalculationStrategy{
     private _ticket: Ticket;
-    private _pricePerHour: number;
-    public get pricePerHour(): number {
-        return this._pricePerHour;
-    }
-    public set pricePerHour(value: number) {
-        this._pricePerHour = value;
-    }
+    
         
-    constructor(ticket:Ticket,pricePerHour:number){
+    constructor(ticket:Ticket){
         this._ticket = ticket;
-        this._pricePerHour = pricePerHour;
     }
     
     public get ticket(): Ticket {
@@ -34,6 +28,6 @@ export class PricePerHourCalculationStrategy implements IPriceCalculationStrateg
             return 0
         }
         const no_of_hours = getEpochTime(endHour)- getEpochTime(startHour);
-        return convertSecondsToHours(no_of_hours*this.pricePerHour)
+        return convertSecondsToHours(no_of_hours*PRICE_PER_HOUR[this.ticket.vehicle.vehicleType])
     }   
 }
